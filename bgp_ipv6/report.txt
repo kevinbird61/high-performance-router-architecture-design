@@ -1,0 +1,663 @@
+BGP Routing Table Report
+    Local Time:      Tue Apr 17 06:00:00 2018 UTC (UTC Offset: +00:00)
+    UTC Time:        06:00:00 17-04-2018
+
+Route Table Analysis Details
+    AS selected:     AS6447
+    View:            Locally generated
+    BGP Dump File:   /var/data/tmp/v6/rva/1/rva6-2018-04-17-0600.tab
+    Extended Reports stored in directory: /var/data/tmp/v6/rva/1/2018-04-17-0600/6447
+    AS Number file:  /var/data/bgp/asn.txt
+    Collector:       Disabled
+    Table Scan time: 6 seconds
+
+Analysis of BGP file
+    BGP routing table entries (FIB size):                          53422
+      More specific prefixes of aggregates:                        23721
+      Root aggregate prefixes:                                     29701
+      Filtered Prefixes - AS origin aggregation:                   26768
+      Filtered Prefixes - length filters                               0
+      Filtered Prefixes - AS origin aggregation and length:            0
+
+    Total address space spanned by table (/64s):         471968014655579
+    Total address space spanned by table (/48s):            115226566078
+      Percentage of total IPv6 address space announced:            0.003
+      Percentage of available address space announced:             0.020
+
+    Total number of unique ASes:                                   15185
+      Origin-only ASes:                                            12064
+      Origin ASes announcing a single prefix:                      10086
+      Transit ASes:                                                 3121
+      Transit-only ASes:                                             226
+
+    Unique AS Paths:                                              376663
+      AS Paths used in FIB:                                        19417
+      Average AS path length:                                      3.981
+      Average address weighted AS path length:                     3.640
+      Maximum AS Path length:                                         14
+      Unique AS prepended Paths:                                  382763
+      No of AS Paths using prepending:                             38182
+      Maximum prepended AS Path length:                               45
+
+    Analysis time (secs):                                             13
+
++
+Active BGP entries (FIB): 53422
+Change in FIB Size: 0
+Change (%): 0.000
+    All BGP entries (RIB): 53423
+    RIB/FIB ratio (53423/53422): 1.0000
+      Valid entries: 53423
+Total address space advertised (/64 equiv): 471968014655579
+    Total address space advertised (prefix): 15.2543
+    Percentage of IPv6 space advertised (471968014655579/18446744073709551615): 0.002559
+Average address span: 8834712565
+    Average address span (as prefix size): 30.9595
+Average prefix length: 43.0929
+Entries advertising more specific prefixes of aggregates: 23721
+    Specifics as % of FIB entries (23721/53422): 44.4031
+    Specifics as % of address span (16182267963187/471968014655579): 3.4287
+    Specifics where AS prepended Path matches aggregate: 10366
+      AS-P_Path-Match % (10366/23721): 43.70
+    AS Path matches aggregate: 10688
+      AS-Path-Match %  (10688/23721): 45.0571
+    AS Origin matches aggregate: 18620
+      AS-Origin-Match % (18620/23721): 78.4958
+    Root Prefixes: 29701
+Root Prefix Tree Depth: 29293 347 54 6 1 
+      Root Prefixes with depth 0: 29293
+      Root Prefixes with depth 1: 347
+      Root Prefixes with depth 2: 54
+      Root Prefixes with depth 3: 6
+      Root Prefixes with depth 4: 1
+Unique ASes: 15185
+    ASes visible in only one AS path: 10897
+    Origin only ASes: 12064
+      Origin ASs announced via a single AS path: 10459
+    Transit only ASes: 226
+    Originating AS ATOM count: 14959
+    Mixed ASes: 2895
+      Originating AS ATOM compression: 0.2800
+    Multi-Origin Prefixes: 374
+    ASes originating a single prefix: 10086
+    Average entries per origin AS: 3.5712
+      Maximum entries for an origin AS (AS22773): 1259
+    Average address range span for an origin AS: 31550773090.1517
+      Maximum address range for an origin AS (AS7922): 36318243520512
+      Maximum address range (prefix length) for an origin AS (AS7922): 18.95
+    Average address range span for an origin AS (pfx length): 29.1230
+Unique AS Paths: 376663
+    Unique AS prepended Paths: 382763
+AS Paths used in FIB: 19417
+    AS Paths using prepending: 38182
+    AS paths associated with a single FIB entry: 14034
+    AS Paths using private ASs: 87
+    Average AS path length: 3.9812
+      Maximum AS Path length: 14
+    Average address weighted AS path length: 3.6403
+      Maximum prepended AS Path length: 45
+    Average entries per AS Path: 0.1418
+    Average entries per FIB AS Path: 2.7513
+    AS Paths per origin AS: 25.1797
+    FIB AS Paths per origin AS: 1.2980
+      AS PATH ATOM compression: 0.3635
+Prefix Count: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 11 3 6 4 20 6 15 17 83 2131 217 134 10281 717 507 419 1968 304 716 214 2558 217 437 199 3819 201 1502 388 23517 84 20 6 68 1 448 8 294 1 4 3 5 1 3 3 1505 
+% Prefix distribution: 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.02 0.01 0.01 0.01 0.04 0.01 0.03 0.03 0.16 3.99 0.41 0.25 19.24 1.34 0.95 0.78 3.68 0.57 1.34 0.40 4.79 0.41 0.82 0.37 7.15 0.38 2.81 0.73 44.02 0.16 0.04 0.01 0.13 0.00 0.84 0.01 0.55 0.00 0.01 0.01 0.01 0.00 0.01 0.01 2.82 
+    Prefix count /19: 2
+    % Prefix  /19: 0.00
+    Prefix count /20: 11
+    % Prefix  /20: 0.02
+    Prefix count /21: 3
+    % Prefix  /21: 0.01
+    Prefix count /22: 6
+    % Prefix  /22: 0.01
+    Prefix count /23: 4
+    % Prefix  /23: 0.01
+    Prefix count /24: 20
+    % Prefix  /24: 0.04
+    Prefix count /25: 6
+    % Prefix  /25: 0.01
+    Prefix count /26: 15
+    % Prefix  /26: 0.03
+    Prefix count /27: 17
+    % Prefix  /27: 0.03
+    Prefix count /28: 83
+    % Prefix  /28: 0.16
+    Prefix count /29: 2131
+    % Prefix  /29: 3.99
+    Prefix count /30: 217
+    % Prefix  /30: 0.41
+    Prefix count /31: 134
+    % Prefix  /31: 0.25
+    Prefix count /32: 10281
+    % Prefix  /32: 19.24
+    Prefix count /33: 717
+    % Prefix  /33: 1.34
+    Prefix count /34: 507
+    % Prefix  /34: 0.95
+    Prefix count /35: 419
+    % Prefix  /35: 0.78
+    Prefix count /36: 1968
+    % Prefix  /36: 3.68
+    Prefix count /37: 304
+    % Prefix  /37: 0.57
+    Prefix count /38: 716
+    % Prefix  /38: 1.34
+    Prefix count /39: 214
+    % Prefix  /39: 0.40
+    Prefix count /40: 2558
+    % Prefix  /40: 4.79
+    Prefix count /41: 217
+    % Prefix  /41: 0.41
+    Prefix count /42: 437
+    % Prefix  /42: 0.82
+    Prefix count /43: 199
+    % Prefix  /43: 0.37
+    Prefix count /44: 3819
+    % Prefix  /44: 7.15
+    Prefix count /45: 201
+    % Prefix  /45: 0.38
+    Prefix count /46: 1502
+    % Prefix  /46: 2.81
+    Prefix count /47: 388
+    % Prefix  /47: 0.73
+    Prefix count /48: 23517
+    % Prefix  /48: 44.02
+    Prefix count /49: 84
+    % Prefix  /49: 0.16
+    Prefix count /50: 20
+    % Prefix  /50: 0.04
+    Prefix count /51: 6
+    % Prefix  /51: 0.01
+    Prefix count /52: 68
+    % Prefix  /52: 0.13
+    Prefix count /53: 1
+    % Prefix  /53: 0.00
+    Prefix count /54: 448
+    % Prefix  /54: 0.84
+    Prefix count /55: 8
+    % Prefix  /55: 0.01
+    Prefix count /56: 294
+    % Prefix  /56: 0.55
+    Prefix count /57: 1
+    % Prefix  /57: 0.00
+    Prefix count /58: 4
+    % Prefix  /58: 0.01
+    Prefix count /59: 3
+    % Prefix  /59: 0.01
+    Prefix count /60: 5
+    % Prefix  /60: 0.01
+    Prefix count /61: 1
+    % Prefix  /61: 0.00
+    Prefix count /62: 3
+    % Prefix  /62: 0.01
+    Prefix count /63: 3
+    % Prefix  /63: 0.01
+    Prefix count /64: 1505
+    % Prefix  /64: 2.82
+    Prefix count /65: 1
+    % Prefix  /65: 0.00
+    Prefix count /66: 1
+    % Prefix  /66: 0.00
+    Prefix count /80: 3
+    % Prefix  /80: 0.01
+    Prefix count /81: 1
+    % Prefix  /81: 0.00
+    Prefix count /88: 1
+    % Prefix  /88: 0.00
+    Prefix count /96: 1
+    % Prefix  /96: 0.00
+    Prefix count /110: 3
+    % Prefix  /110: 0.01
+    Prefix count /112: 24
+    % Prefix  /112: 0.04
+    Prefix count /120: 1
+    % Prefix  /120: 0.00
+    Prefix count /121: 1
+    % Prefix  /121: 0.00
+    Prefix count /122: 1
+    % Prefix  /122: 0.00
+    Prefix count /123: 1
+    % Prefix  /123: 0.00
+    Prefix count /124: 7
+    % Prefix  /124: 0.01
+    Prefix count /125: 10
+    % Prefix  /125: 0.02
+    Prefix count /126: 187
+    % Prefix  /126: 0.35
+    Prefix count /127: 47
+    % Prefix  /127: 0.09
+    Prefix count /128: 65
+    % Prefix  /128: 0.12
+Root Prefix Count: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 11 3 5 4 17 5 13 15 66 2119 161 84 9763 222 180 158 914 116 520 27 1018 61 214 75 865 66 465 137 12284 17 4 0 5 1 0 0 8 0 0 0 1 0 0 0 51 
+% Prefix distribution: 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.02 0.09 0.02 0.04 0.03 0.14 0.04 0.11 0.12 0.54 17.27 1.31 0.68 79.58 
+    Prefix count /19: 2
+    % Prefix  /19: 0.02
+    Prefix count /20: 11
+    % Prefix  /20: 0.09
+    Prefix count /21: 3
+    % Prefix  /21: 0.02
+    Prefix count /22: 5
+    % Prefix  /22: 0.04
+    Prefix count /23: 4
+    % Prefix  /23: 0.03
+    Prefix count /24: 17
+    % Prefix  /24: 0.14
+    Prefix count /25: 5
+    % Prefix  /25: 0.04
+    Prefix count /26: 13
+    % Prefix  /26: 0.11
+    Prefix count /27: 15
+    % Prefix  /27: 0.12
+    Prefix count /28: 66
+    % Prefix  /28: 0.54
+    Prefix count /29: 2119
+    % Prefix  /29: 17.27
+    Prefix count /30: 161
+    % Prefix  /30: 1.31
+    Prefix count /31: 84
+    % Prefix  /31: 0.68
+    Prefix count /32: 9763
+    % Prefix  /32: 79.58
+    Prefix count /33: 222
+    % Prefix  /33: 0.00
+    Prefix count /34: 180
+    % Prefix  /34: 0.00
+    Prefix count /35: 158
+    % Prefix  /35: 0.00
+    Prefix count /36: 914
+    % Prefix  /36: 0.00
+    Prefix count /37: 116
+    % Prefix  /37: 0.00
+    Prefix count /38: 520
+    % Prefix  /38: 0.00
+    Prefix count /39: 27
+    % Prefix  /39: 0.00
+    Prefix count /40: 1018
+    % Prefix  /40: 0.00
+    Prefix count /41: 61
+    % Prefix  /41: 0.00
+    Prefix count /42: 214
+    % Prefix  /42: 0.00
+    Prefix count /43: 75
+    % Prefix  /43: 0.00
+    Prefix count /44: 865
+    % Prefix  /44: 0.00
+    Prefix count /45: 66
+    % Prefix  /45: 0.00
+    Prefix count /46: 465
+    % Prefix  /46: 0.00
+    Prefix count /47: 137
+    % Prefix  /47: 0.00
+    Prefix count /48: 12284
+    % Prefix  /48: 0.00
+    Prefix count /49: 17
+    % Prefix  /49: 0.00
+    Prefix count /50: 4
+    % Prefix  /50: 0.00
+    Prefix count /52: 5
+    % Prefix  /52: 0.00
+    Prefix count /53: 1
+    % Prefix  /53: 0.00
+    Prefix count /56: 8
+    % Prefix  /56: 0.00
+    Prefix count /60: 1
+    % Prefix  /60: 0.00
+    Prefix count /64: 51
+    % Prefix  /64: 0.00
+    Prefix count /80: 1
+    % Prefix  /80: 0.00
+    Prefix count /96: 1
+    % Prefix  /96: 0.00
+    Prefix count /121: 1
+    % Prefix  /121: 0.00
+    Prefix count /122: 1
+    % Prefix  /122: 0.00
+    Prefix count /125: 1
+    % Prefix  /125: 0.00
+    Prefix count /126: 11
+    % Prefix  /126: 0.00
+    Prefix count /127: 2
+    % Prefix  /127: 0.00
+    Prefix count /128: 6
+    % Prefix  /128: 0.00
+Addresses by AS distance: 0 3959887825289 281792907894117 152274030912593 45929374109437 3439215385930 625739665416 120534466560 8592228352 131072 0 0 0 0 
+Address percentage by AS distance: 0.0 0.8 57.7 31.2 9.4 0.7 0.1 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+    Addresses at AS distance 0: 0
+    % Addresses at AS distance 0: 0
+    Addresses at AS distance 1: 3959887825289
+    % Addresses at AS distance 1: 0
+    Addresses at AS distance 2: 281792907894117
+    % Addresses at AS distance 2: 57
+    Addresses at AS distance 3: 152274030912593
+    % Addresses at AS distance 3: 31
+    Addresses at AS distance 4: 45929374109437
+    % Addresses at AS distance 4: 9
+    Addresses at AS distance 5: 3439215385930
+    % Addresses at AS distance 5: 0
+    Addresses at AS distance 6: 625739665416
+    % Addresses at AS distance 6: 0
+    Addresses at AS distance 7: 120534466560
+    % Addresses at AS distance 7: 0
+    Addresses at AS distance 8: 8592228352
+    % Addresses at AS distance 8: 0
+    Addresses at AS distance 9: 131072
+    % Addresses at AS distance 9: 0
+    Addresses at AS distance 10: 0
+    % Addresses at AS distance 10: 0
+    Addresses at AS distance 11: 0
+    % Addresses at AS distance 11: 0
+    Addresses at AS distance 12: 0
+    % Addresses at AS distance 12: 0
+    Addresses at AS distance 13: 0
+    % Addresses at AS distance 13: 0
+Cumulative Address by AS distance: 0 3959887825289 285752795719406 438026826631999 483956200741436 487395416127366 488021155792782 488141690259342 488150282487694 488150282618766 488150282618766 488150282618766 488150282618766 488150282618766 
+Cumulative % Address by AS distance: 0 0 58 89 99 99 99 99 99 100 100 100 100 100 
+    Addresses reachable within 0 AS hops: 0
+    % Addresses reachable within 0 AS hops: 0
+    Addresses reachable within 1 AS hops: 3959887825289
+    % Addresses reachable within 1 AS hops: 0
+    Addresses reachable within 2 AS hops: 285752795719406
+    % Addresses reachable within 2 AS hops: 58
+    Addresses reachable within 3 AS hops: 438026826631999
+    % Addresses reachable within 3 AS hops: 89
+    Addresses reachable within 4 AS hops: 483956200741436
+    % Addresses reachable within 4 AS hops: 99
+    Addresses reachable within 5 AS hops: 487395416127366
+    % Addresses reachable within 5 AS hops: 99
+    Addresses reachable within 6 AS hops: 488021155792782
+    % Addresses reachable within 6 AS hops: 99
+    Addresses reachable within 7 AS hops: 488141690259342
+    % Addresses reachable within 7 AS hops: 99
+    Addresses reachable within 8 AS hops: 488150282487694
+    % Addresses reachable within 8 AS hops: 99
+    Addresses reachable within 9 AS hops: 488150282618766
+    % Addresses reachable within 9 AS hops: 100
+    Addresses reachable within 10 AS hops: 488150282618766
+    % Addresses reachable within 10 AS hops: 100
+    Addresses reachable within 11 AS hops: 488150282618766
+    % Addresses reachable within 11 AS hops: 100
+    Addresses reachable within 12 AS hops: 488150282618766
+    % Addresses reachable within 12 AS hops: 100
+    Addresses reachable within 13 AS hops: 488150282618766
+    % Addresses reachable within 13 AS hops: 100
+ASes by AS distance: 1 22 2701 8496 3192 633 109 18 9 1 1 1 1 0 
+% ASes by AS hops: 0 0 17 55 21 4 0 0 0 0 0 0 0 0 
+    ASes reachable at 0 AS hops: 1
+    % ASes reachable at 0 AS hops: 0
+    ASes reachable at 1 AS hops: 22
+    % ASes reachable at 1 AS hops: 0
+    ASes reachable at 2 AS hops: 2701
+    % ASes reachable at 2 AS hops: 17
+    ASes reachable at 3 AS hops: 8496
+    % ASes reachable at 3 AS hops: 55
+    ASes reachable at 4 AS hops: 3192
+    % ASes reachable at 4 AS hops: 21
+    ASes reachable at 5 AS hops: 633
+    % ASes reachable at 5 AS hops: 4
+    ASes reachable at 6 AS hops: 109
+    % ASes reachable at 6 AS hops: 0
+    ASes reachable at 7 AS hops: 18
+    % ASes reachable at 7 AS hops: 0
+    ASes reachable at 8 AS hops: 9
+    % ASes reachable at 8 AS hops: 0
+    ASes reachable at 9 AS hops: 1
+    % ASes reachable at 9 AS hops: 0
+    ASes reachable at 10 AS hops: 1
+    % ASes reachable at 10 AS hops: 0
+    ASes reachable at 11 AS hops: 1
+    % ASes reachable at 11 AS hops: 0
+    ASes reachable at 12 AS hops: 1
+    % ASes reachable at 12 AS hops: 0
+    ASes reachable at 13 AS hops: 0
+    % ASes reachable at 13 AS hops: 0
+Cumulative ASes by AS hops: 1 23 2724 11220 14412 15045 15154 15172 15181 15182 15183 15184 15185 15185 
+Cumulative % ASes by AS hops: 0.0 0.2 17.9 73.9 94.9 99.1 99.8 99.9 100.0 100.0 100.0 100.0 100.0 100.0 
+    ASes reachable by 0 AS hops: 1
+    Cumulative % ASes by AS hops 0: 0
+    ASes reachable by 1 AS hops: 23
+    Cumulative % ASes by AS hops 1: 0
+    ASes reachable by 2 AS hops: 2724
+    Cumulative % ASes by AS hops 2: 17
+    ASes reachable by 3 AS hops: 11220
+    Cumulative % ASes by AS hops 3: 73
+    ASes reachable by 4 AS hops: 14412
+    Cumulative % ASes by AS hops 4: 94
+    ASes reachable by 5 AS hops: 15045
+    Cumulative % ASes by AS hops 5: 99
+    ASes reachable by 6 AS hops: 15154
+    Cumulative % ASes by AS hops 6: 99
+    ASes reachable by 7 AS hops: 15172
+    Cumulative % ASes by AS hops 7: 99
+    ASes reachable by 8 AS hops: 15181
+    Cumulative % ASes by AS hops 8: 99
+    ASes reachable by 9 AS hops: 15182
+    Cumulative % ASes by AS hops 9: 99
+    ASes reachable by 10 AS hops: 15183
+    Cumulative % ASes by AS hops 10: 99
+    ASes reachable by 11 AS hops: 15184
+    Cumulative % ASes by AS hops 11: 99
+    ASes reachable by 12 AS hops: 15185
+    Cumulative % ASes by AS hops 12: 100
+    ASes reachable by 13 AS hops: 15185
+    Cumulative % ASes by AS hops 13: 100
+-Top 20 AS's by Orginating AS address span
++1     AS7922   ORG+TRN Originate: 36318243520512 (/18.95)   Transit: 60564307968 (/28.18)
++2     AS3320   ORG+TRN Originate: 35287469260800 (/19.00)   Transit: 1134906441728 (/23.95)
++3     AS5511   ORG+TRN Originate: 35188667121664 (/19.00)   Transit: 18097991188480 (/19.96)
++4     AS17676  ORG+TRN Originate: 18695992639488 (/19.91)   Transit: 38654967808 (/28.83)
++5     AS5713   ORIGIN  Originate: 17660905521152 (/19.99)   Transit: 0          (/0.00 )
++6     AS4837   ORG+TRN Originate: 17633793540096 (/20.00)   Transit: 70542098432 (/27.96)
++7     AS3269   ORG+TRN Originate: 17626545782784 (/20.00)   Transit: 94489280512 (/27.54)
++8     AS26496  ORIGIN  Originate: 17605118525441 (/20.00)   Transit: 0          (/0.00 )
++9     AS1299   ORG+TRN Originate: 17605070946304 (/20.00)   Transit: 13181578313728 (/20.42)
++10    AS1221   ORG+TRN Originate: 17600792887296 (/20.00)   Transit: 98277785600 (/27.48)
++11    AS24863  ORIGIN  Originate: 17592186306560 (/20.00)   Transit: 0          (/0.00 )
++12    AS10318  ORIGIN  Originate: 17592186044416 (/20.00)   Transit: 0          (/0.00 )
++13    AS3462   ORG+TRN Originate: 8808979496971 (/21.00)   Transit: 17451057169 (/29.98)
++14    AS1273   ORG+TRN Originate: 8800387989504 (/21.00)   Transit: 1467631599616 (/23.58)
++15    AS5617   ORG+TRN Originate: 8796093153280 (/21.00)   Transit: 12886081536 (/30.41)
++16    AS3209   ORG+TRN Originate: 5536212844544 (/21.67)   Transit: 124554412032 (/27.14)
++17    AS2792   ORIGIN  Originate: 4479656493056 (/21.97)   Transit: 0          (/0.00 )
++18    AS55836  ORG+TRN Originate: 4451734978560 (/21.98)   Transit: 4294967296 (/32.00)
++19    AS9595   ORIGIN  Originate: 4410931412992 (/22.00)   Transit: 0          (/0.00 )
++20    AS9143   ORIGIN  Originate: 4408783929344 (/22.00)   Transit: 0          (/0.00 )
+Originating Addresses AS Count: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 8 4 7 3 12 14 17 39 183 568 1121 372 1642 5602 107 99 141 237 65 58 161 210 23 48 142 222 187 266 526 2733 2 2 1 3 1 3 0 3 0 0 0 1 1 2 6 28 
+Originating Addresses % AS Count: 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 0.0002 0.0005 0.0003 0.0005 0.0002 0.0008 0.0009 0.0011 0.0026 0.0123 0.0382 0.0754 0.0250 0.1104 0.3767 0.0072 0.0067 0.0095 0.0159 0.0044 0.0039 0.0108 0.0141 0.0015 0.0032 0.0095 0.0149 0.0126 0.0179 0.0354 0.1838 0.0001 0.0001 0.0001 0.0002 0.0001 0.0002 0.0000 0.0002 0.0000 0.0000 0.0000 0.0001 0.0001 0.0001 0.0004 0.0019 
+    AS's announcing span of /18: 3
+    % AS's announcing span of /18: 0.0002
+    AS's announcing span of /19: 8
+    % AS's announcing span of /19: 0.0005
+    AS's announcing span of /20: 4
+    % AS's announcing span of /20: 0.0003
+    AS's announcing span of /21: 7
+    % AS's announcing span of /21: 0.0005
+    AS's announcing span of /22: 3
+    % AS's announcing span of /22: 0.0002
+    AS's announcing span of /23: 12
+    % AS's announcing span of /23: 0.0008
+    AS's announcing span of /24: 14
+    % AS's announcing span of /24: 0.0009
+    AS's announcing span of /25: 17
+    % AS's announcing span of /25: 0.0011
+    AS's announcing span of /26: 39
+    % AS's announcing span of /26: 0.0026
+    AS's announcing span of /27: 183
+    % AS's announcing span of /27: 0.0123
+    AS's announcing span of /28: 568
+    % AS's announcing span of /28: 0.0382
+    AS's announcing span of /29: 1121
+    % AS's announcing span of /29: 0.0754
+    AS's announcing span of /30: 372
+    % AS's announcing span of /30: 0.0250
+    AS's announcing span of /31: 1642
+    % AS's announcing span of /31: 0.1104
+    AS's announcing span of /32: 5602
+    % AS's announcing span of /32: 0.3767
+    AS's announcing span of /33: 107
+    % AS's announcing span of /33: 0.0072
+    AS's announcing span of /34: 99
+    % AS's announcing span of /34: 0.0067
+    AS's announcing span of /35: 141
+    % AS's announcing span of /35: 0.0095
+    AS's announcing span of /36: 237
+    % AS's announcing span of /36: 0.0159
+    AS's announcing span of /37: 65
+    % AS's announcing span of /37: 0.0044
+    AS's announcing span of /38: 58
+    % AS's announcing span of /38: 0.0039
+    AS's announcing span of /39: 161
+    % AS's announcing span of /39: 0.0108
+    AS's announcing span of /40: 210
+    % AS's announcing span of /40: 0.0141
+    AS's announcing span of /41: 23
+    % AS's announcing span of /41: 0.0015
+    AS's announcing span of /42: 48
+    % AS's announcing span of /42: 0.0032
+    AS's announcing span of /43: 142
+    % AS's announcing span of /43: 0.0095
+    AS's announcing span of /44: 222
+    % AS's announcing span of /44: 0.0149
+    AS's announcing span of /45: 187
+    % AS's announcing span of /45: 0.0126
+    AS's announcing span of /46: 266
+    % AS's announcing span of /46: 0.0179
+    AS's announcing span of /47: 526
+    % AS's announcing span of /47: 0.0354
+    AS's announcing span of /48: 2733
+    % AS's announcing span of /48: 0.1838
+    AS's announcing span of /49: 2
+    % AS's announcing span of /49: 0.0001
+    AS's announcing span of /50: 2
+    % AS's announcing span of /50: 0.0001
+    AS's announcing span of /51: 1
+    % AS's announcing span of /51: 0.0001
+    AS's announcing span of /52: 3
+    % AS's announcing span of /52: 0.0002
+    AS's announcing span of /53: 1
+    % AS's announcing span of /53: 0.0001
+    AS's announcing span of /54: 3
+    % AS's announcing span of /54: 0.0002
+    AS's announcing span of /56: 3
+    % AS's announcing span of /56: 0.0002
+    AS's announcing span of /60: 1
+    % AS's announcing span of /60: 0.0001
+    AS's announcing span of /61: 1
+    % AS's announcing span of /61: 0.0001
+    AS's announcing span of /62: 2
+    % AS's announcing span of /62: 0.0001
+    AS's announcing span of /63: 6
+    % AS's announcing span of /63: 0.0004
+    AS's announcing span of /64: 28
+    % AS's announcing span of /64: 0.0019
+-Top 20 AS's by Transit address span
++1     AS6447   TRANSIT Transit: 488150282618766 (/15.21)   Originate: 0          (/0.00 )
++2     AS2914   ORG+TRN Transit: 231508656534334 (/16.28)   Originate: 60196849920 (/28.19)
++3     AS209    ORG+TRN Transit: 46154400353923 (/18.61)   Originate: 1110438445058 (/23.99)
++4     AS2497   ORG+TRN Transit: 38596322656256 (/18.87)   Originate: 13421772800 (/30.36)
++5     AS6762   ORG+TRN Transit: 36015398649856 (/18.97)   Originate: 8589934593 (/31.00)
++6     AS6939   ORG+TRN Transit: 35648262438912 (/18.98)   Originate: 1121255489536 (/23.97)
++7     AS22652  ORG+TRN Transit: 31825687946927 (/19.14)   Originate: 8590000256 (/31.00)
++8     AS37100  ORG+TRN Transit: 27583267536896 (/19.35)   Originate: 12884901888 (/30.42)
++9     AS701    ORG+TRN Transit: 20871130382336 (/19.75)   Originate: 1272653152256 (/23.79)
++10    AS5511   ORG+TRN Transit: 18097991188480 (/19.96)   Originate: 35188667121664 (/19.00)
++11    AS57463  TRANSIT Transit: 17809911842304 (/19.98)   Originate: 0          (/0.00 )
++12    AS4637   ORG+TRN Transit: 17793249972228 (/19.98)   Originate: 4295688449 (/32.00)
++13    AS20912  ORG+TRN Transit: 17595953053696 (/20.00)   Originate: 4294967296 (/32.00)
++14    AS10481  ORG+TRN Transit: 17592186109952 (/20.00)   Originate: 4294967296 (/32.00)
++15    AS31019  ORG+TRN Transit: 16255710986242 (/20.11)   Originate: 38654771200 (/28.83)
++16    AS1299   ORG+TRN Transit: 13181578313728 (/20.42)   Originate: 17605070946304 (/20.00)
++17    AS3277   ORG+TRN Transit: 8156970810287 (/21.11)   Originate: 65536      (/48.00)
++18    AS40191  ORG+TRN Transit: 7606801867860 (/21.21)   Originate: 4294967301 (/32.00)
++19    AS47872  ORG+TRN Transit: 7548873229073 (/21.22)   Originate: 1048576    (/44.00)
++20    AS6830   ORG+TRN Transit: 5788545286145 (/21.60)   Originate: 1838263238656 (/23.26)
+-Top 20 AS's by Originating + Transit address span
++1     AS6447   TRANSIT Total 488150282618766 (/15.21)  Transit: 488150282618766 (/15.21)   Originate: 0          (/0.00 )
++2     AS2914   ORG+TRN Total 231568853384254 (/16.28)  Transit: 231508656534334 (/16.28)   Originate: 60196849920 (/28.19)
++3     AS5511   ORG+TRN Total 53286658310144 (/18.40)  Transit: 18097991188480 (/19.96)   Originate: 35188667121664 (/19.00)
++4     AS209    ORG+TRN Total 47264838798981 (/18.57)  Transit: 46154400353923 (/18.61)   Originate: 1110438445058 (/23.99)
++5     AS2497   ORG+TRN Total 38609744429056 (/18.87)  Transit: 38596322656256 (/18.87)   Originate: 13421772800 (/30.36)
++6     AS6939   ORG+TRN Total 36769517928448 (/18.94)  Transit: 35648262438912 (/18.98)   Originate: 1121255489536 (/23.97)
++7     AS3320   ORG+TRN Total 36422375702528 (/18.95)  Transit: 1134906441728 (/23.95)   Originate: 35287469260800 (/19.00)
++8     AS7922   ORG+TRN Total 36378807828480 (/18.95)  Transit: 60564307968 (/28.18)   Originate: 36318243520512 (/18.95)
++9     AS6762   ORG+TRN Total 36023988584449 (/18.97)  Transit: 36015398649856 (/18.97)   Originate: 8589934593 (/31.00)
++10    AS22652  ORG+TRN Total 31834277947183 (/19.14)  Transit: 31825687946927 (/19.14)   Originate: 8590000256 (/31.00)
++11    AS1299   ORG+TRN Total 30786649260032 (/19.19)  Transit: 13181578313728 (/20.42)   Originate: 17605070946304 (/20.00)
++12    AS37100  ORG+TRN Total 27596152438784 (/19.35)  Transit: 27583267536896 (/19.35)   Originate: 12884901888 (/30.42)
++13    AS701    ORG+TRN Total 22143783534592 (/19.67)  Transit: 20871130382336 (/19.75)   Originate: 1272653152256 (/23.79)
++14    AS17676  ORG+TRN Total 18734647607296 (/19.91)  Transit: 38654967808 (/28.83)   Originate: 18695992639488 (/19.91)
++15    AS57463  TRANSIT Total 17809911842304 (/19.98)  Transit: 17809911842304 (/19.98)   Originate: 0          (/0.00 )
++16    AS4637   ORG+TRN Total 17797545660677 (/19.98)  Transit: 17793249972228 (/19.98)   Originate: 4295688449 (/32.00)
++17    AS3269   ORG+TRN Total 17721035063296 (/19.99)  Transit: 94489280512 (/27.54)   Originate: 17626545782784 (/20.00)
++18    AS4837   ORG+TRN Total 17704335638528 (/19.99)  Transit: 70542098432 (/27.96)   Originate: 17633793540096 (/20.00)
++19    AS1221   ORG+TRN Total 17699070672896 (/19.99)  Transit: 98277785600 (/27.48)   Originate: 17600792887296 (/20.00)
++20    AS5713   ORIGIN  Total 17660905521152 (/19.99)  Transit: 0          (/0.00 )   Originate: 17660905521152 (/19.99)
+Average AS Connectivity Degree (68946/15185): 4.5404
+-Top 20 AS's by AS Adjacency
++    1 AS6939  Adjacency:  4242  Upstream:    48  Downstream:  4194
++    2 AS174   Adjacency:  1724  Upstream:    28  Downstream:  1696
++    3 AS3356  Adjacency:  1449  Upstream:    28  Downstream:  1421
++    4 AS37100 Adjacency:  1187  Upstream:    15  Downstream:  1172
++    5 AS1299  Adjacency:  1054  Upstream:    34  Downstream:  1020
++    6 AS2914  Adjacency:   986  Upstream:    27  Downstream:   959
++    7 AS31019 Adjacency:   827  Upstream:     7  Downstream:   820
++    8 AS3257  Adjacency:   742  Upstream:    23  Downstream:   719
++    9 AS12552 Adjacency:   549  Upstream:     9  Downstream:   540
++   10 AS18106 Adjacency:   543  Upstream:    12  Downstream:   531
++   11 AS3549  Adjacency:   415  Upstream:     5  Downstream:   410
++   12 AS6453  Adjacency:   394  Upstream:    21  Downstream:   373
++   13 AS3267  Adjacency:   352  Upstream:    10  Downstream:   342
++   14 AS6461  Adjacency:   346  Upstream:    17  Downstream:   329
++   15 AS47872 Adjacency:   345  Upstream:     4  Downstream:   341
++   16 AS22652 Adjacency:   291  Upstream:    10  Downstream:   281
++   17 AS9002  Adjacency:   289  Upstream:    15  Downstream:   274
++   18 AS43531 Adjacency:   289  Upstream:    12  Downstream:   277
++   19 AS209   Adjacency:   282  Upstream:    15  Downstream:   267
++   20 AS3320  Adjacency:   273  Upstream:    17  Downstream:   256
+-Top 20 AS's by Downstream AS Adjacencies
++    1 AS6939  Downstream:  4194  Upstream:    48  Adjacency:  4242
++    2 AS174   Downstream:  1696  Upstream:    28  Adjacency:  1724
++    3 AS3356  Downstream:  1421  Upstream:    28  Adjacency:  1449
++    4 AS37100 Downstream:  1172  Upstream:    15  Adjacency:  1187
++    5 AS1299  Downstream:  1020  Upstream:    34  Adjacency:  1054
++    6 AS2914  Downstream:   959  Upstream:    27  Adjacency:   986
++    7 AS31019 Downstream:   820  Upstream:     7  Adjacency:   827
++    8 AS3257  Downstream:   719  Upstream:    23  Adjacency:   742
++    9 AS12552 Downstream:   540  Upstream:     9  Adjacency:   549
++   10 AS18106 Downstream:   531  Upstream:    12  Adjacency:   543
++   11 AS3549  Downstream:   410  Upstream:     5  Adjacency:   415
++   12 AS6453  Downstream:   373  Upstream:    21  Adjacency:   394
++   13 AS3267  Downstream:   342  Upstream:    10  Adjacency:   352
++   14 AS47872 Downstream:   341  Upstream:     4  Adjacency:   345
++   15 AS6461  Downstream:   329  Upstream:    17  Adjacency:   346
++   16 AS22652 Downstream:   281  Upstream:    10  Adjacency:   291
++   17 AS43531 Downstream:   277  Upstream:    12  Adjacency:   289
++   18 AS9002  Downstream:   274  Upstream:    15  Adjacency:   289
++   19 AS209   Downstream:   267  Upstream:    15  Adjacency:   282
++   20 AS3320  Downstream:   256  Upstream:    17  Adjacency:   273
+-Top 20 AS's by Upstream AS Adjacency
++    1 AS20940 Upstream:   115  Downstream:     3  Adjacency:   118
++    2 AS13335 Upstream:    73  Downstream:     4  Adjacency:    77
++    3 AS15133 Upstream:    53  Downstream:     2  Adjacency:    55
++    4 AS6939  Upstream:    48  Downstream:  4194  Adjacency:  4242
++    5 AS42473 Upstream:    46  Downstream:    13  Adjacency:    59
++    6 AS32934 Upstream:    37  Downstream:     1  Adjacency:    38
++    7 AS1299  Upstream:    34  Downstream:  1020  Adjacency:  1054
++    8 AS12654 Upstream:    33  Downstream:     0  Adjacency:    33
++    9 AS16509 Upstream:    30  Downstream:     2  Adjacency:    32
++   10 AS714   Upstream:    28  Downstream:     1  Adjacency:    29
++   11 AS174   Upstream:    28  Downstream:  1696  Adjacency:  1724
++   12 AS2906  Upstream:    28  Downstream:     2  Adjacency:    30
++   13 AS3356  Upstream:    28  Downstream:  1421  Adjacency:  1449
++   14 AS2914  Upstream:    27  Downstream:   959  Adjacency:   986
++   15 AS54113 Upstream:    26  Downstream:     0  Adjacency:    26
++   16 AS19551 Upstream:    25  Downstream:     0  Adjacency:    25
++   17 AS6621  Upstream:    24  Downstream:     2  Adjacency:    26
++   18 AS12222 Upstream:    24  Downstream:     0  Adjacency:    24
++   19 AS15695 Upstream:    24  Downstream:     0  Adjacency:    24
++   20 AS286   Upstream:    23  Downstream:    80  Adjacency:   103
+Aggregation Potential Summary: 53422 34651 34415 26768 
+    Aggregation using prepended AS Path: 34651
+    Aggregation using AS Path: 34415
+    Aggregation using AS Origin: 26768
+    Analysis time: 17 seconds
