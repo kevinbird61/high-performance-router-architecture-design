@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
-#include<stdint.h>
+#include<time.h>
 ////////////////////////////////////////////////////////////////////////////////////
 struct ENTRY{
 	unsigned int ip;
@@ -28,10 +28,11 @@ btrie root;
 unsigned int *query;
 int num_entry=0;
 int num_query=0;
+int layer=0;
 struct ENTRY *table;
 int N=0;//number of nodes
 unsigned long long int begin,end,total=0;
-unsigned long long int *clock;
+unsigned long long int *clocker;
 int num_node=0;//total number of nodes in the binary trie
 ////////////////////////////////////////////////////////////////////////////////////
 btrie create_node(){
@@ -156,12 +157,12 @@ void set_query(char *file_name){
 	}
 	rewind(fp);
 	query=(unsigned int *)malloc(num_query*sizeof(unsigned int));
-	clock=(unsigned long long int *)malloc(num_query*sizeof(unsigned long long int));
+	clocker=(unsigned long long int *)malloc(num_query*sizeof(unsigned long long int));
 	num_query=0;
 	while(fgets(string,50,fp)!=NULL){
 		read_table(string,&ip,&len,&nexthop);
 		query[num_query]=ip;
-		clock[num_query++]=10000000;
+		clocker[num_query++]=10000000;
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////////
@@ -181,6 +182,15 @@ void count_node(btrie r){
 	N++;
 	count_node(r->right);
 }
+
+void detect_layer(btrie r,int l){
+	if(r==NULL)
+		return;
+	if(l>layer)
+		layer=l;
+	detect_layer(r->left,l++);
+	detect_layer(r->right,l++);
+}
 ////////////////////////////////////////////////////////////////////////////////////
 void CountClock()
 {
@@ -190,9 +200,9 @@ void CountClock()
 	unsigned long long MinClock = 10000000, MaxClock = 0;
 	for(i = 0; i < num_query; i++)
 	{
-		if(clock[i] > MaxClock) MaxClock = clock[i];
-		if(clock[i] < MinClock) MinClock = clock[i];
-		if(clock[i] / 100 < 50) NumCntClock[clock[i] / 100]++;
+		if(clocker[i] > MaxClock) MaxClock = clocker[i];
+		if(clocker[i] < MinClock) MinClock = clocker[i];
+		if(clocker[i] / 100 < 50) NumCntClock[clocker[i] / 100]++;
 		else NumCntClock[49]++;
 	}
 	printf("(MaxClock, MinClock) = (%5llu, %5llu)\n", MaxClock, MinClock);
@@ -221,20 +231,32 @@ int main(int argc,char *argv[]){
 	////////////////////////////////////////////////////////////////////////////
     total=0;
     printf("Searching...");
+	double time_spent=0;
     for(i=0;i<num_query;i++){
-        begin=rdtsc();
+        // begin=rdtsc();
+		clock_t begin = clock();
         search(query[i]);
-        end=rdtsc();
-        total+=(end-begin);
-        printf(".");
+        // end=rdtsc();
+		clock_t end = clock();
+        // total+=(end-begin);
+		if(i==0)
+			time_spent = (double)(end-begin)/CLOCKS_PER_SEC;
+		else 
+			time_spent += ((double)(end-begin)/CLOCKS_PER_SEC)/2;
+        //printf("%f\n",(double)end-begin/CLOCKS_PER_SEC);	
     }
-    printf("\n\nAvg. Inseart: %llu\n",insert_avg);
-	printf("number of nodes: %d\n",num_node);
+    printf("\n\nAvg. Inserting time: %llu\n",insert_avg);
+	printf("Number of nodes(binary trie): %d\n",num_node);
 	printf("Total memory requirement: %d KB\n",((num_node*12)/1024));
-	printf("Avg. Search: %llu\n",total/num_query);
+	printf("Avg. Searching time: %f (sec)\n",time_spent);
 	//CountClock();
 	////////////////////////////////////////////////////////////////////////////
 	//count_node(root);
 	//printf("There are %d nodes in binary trie\n",N);
+
+	// detect layer 
+	detect_layer(root,1);
+	printf("Maximum Layer: %d\n",layer);
+
 	return 0;
 }
