@@ -1,3 +1,4 @@
+#include <time.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,7 +28,8 @@ typedef struct entry {
 // global variables
 NODE *root;
 unsigned int num_entries=0;
-unsigned int num_nodes=0;
+unsigned int num_nodes=0,N=0,Layer=0;
+clock_t begin,end;
 
 int hex2int(char c){
     if(c>=48 && c<=57)
@@ -115,6 +117,39 @@ void read_ip_info(char *str,uint128_t *ipv6,unsigned long *len,unsigned long *ne
 
 }
 
+void search(uint128_t ipv6){
+    NODE *current=root,*temp=NULL;
+    for(int i=127;i>=(-1);i--){
+        if(current==NULL)
+            break;
+        if(current->port!=256)
+            temp=current;
+        if(ipv6&(1<<i)){
+            current=current->right;  
+        }
+        else{
+            current=current->left;
+        }
+    }
+}
+
+void count_node(NODE *r){
+	if(r==NULL)
+		return;
+	count_node(r->left);
+	N++;
+	count_node(r->right);
+}
+
+void detect_layer(NODE *r,int l){
+	if(r==NULL)
+		return;
+	if(l>Layer)
+		Layer=l;
+	detect_layer(r->left,l++);
+	detect_layer(r->right,l++);
+}
+
 int main(void){
     // root
     root = (NODE *)malloc(sizeof(NODE*));
@@ -169,8 +204,7 @@ int main(void){
         // inc
         num_entries++;
 
-        // create binary trie
-        add_node(ipv6,len,nexthop);
+        // create binary trie, and count the time
 
         /* debug
         for(int i=0;i<IPV6;i++){
@@ -181,6 +215,35 @@ int main(void){
         printf("\n");
         */
     }
+
+    // create node 
+    begin = clock();
+    for(int i=0;i<num_entries;i++){
+        add_node(table[i].ipv6,table[i].len,table[i].port);
+    }
+    end = clock();
+
+    //printf("%ld, %ld\n",begin,end);
+    // Print info 
+    printf("Total entries: %d\n",num_entries);
+    printf("Total inserting time: %lf (sec)\n",(double)(end-begin)/(CLOCKS_PER_SEC));
+    
+    // searching
+    begin = clock();
+    for(int i=0;i<num_entries;i++){
+        search(query[i]);
+    }
+    end = clock();
+
+    //printf("%ld, %ld\n",begin,end);
+    // Print info 
+    printf("Total searching queries: %d\n",num_entries);
+    printf("Total searching time: %lf (sec)\n",(double)(end-begin)/(CLOCKS_PER_SEC));
+    
+    count_node(root);
+    printf("Total nodes(in binary trie): %d\n",N);
+    detect_layer(root,1);
+    printf("Maximum Layer: %d\n",Layer);
 
     // Print debug
     /*for(int i=0;i<=IPV6;i++){

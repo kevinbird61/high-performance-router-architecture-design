@@ -245,7 +245,7 @@ int main(int argc,char *argv[]){
 			time_spent += ((double)(end-begin)/CLOCKS_PER_SEC)/2;
         //printf("%f\n",(double)end-begin/CLOCKS_PER_SEC);	
     }
-    printf("\n\nAvg. Inserting time: %llu\n",insert_avg);
+    printf("\n\nAvg. Inserting time: %f (sec)\n",(double)insert_avg/CLOCKS_PER_SEC);
 	printf("Number of nodes(binary trie): %d\n",num_node);
 	printf("Total memory requirement: %d KB\n",((num_node*12)/1024));
 	printf("Avg. Searching time: %f (sec)\n",time_spent);
