@@ -29,7 +29,15 @@ typedef struct entry {
 NODE *root;
 unsigned int num_entries=0;
 unsigned int num_nodes=0,N=0,Layer=0;
+unsigned long long int *clocker;
 clock_t begin,end;
+
+inline unsigned long long int rdtsc()
+{
+	unsigned long long int x;
+	asm   volatile ("rdtsc" : "=A" (x));
+	return x;
+}
 
 int hex2int(char c){
     if(c>=48 && c<=57)
@@ -150,6 +158,28 @@ void detect_layer(NODE *r,int l){
 	detect_layer(r->right,l++);
 }
 
+void CountClock()
+{
+	unsigned int i;
+	unsigned int* NumCntClock = (unsigned int* )malloc(50 * sizeof(unsigned int ));
+	for(i = 0; i < 50; i++) NumCntClock[i] = 0;
+	unsigned long long MinClock = 10000000, MaxClock = 0;
+	for(i = 0; i < num_entries; i++)
+	{
+		if(clocker[i] > MaxClock) MaxClock = clocker[i];
+		if(clocker[i] < MinClock) MinClock = clocker[i];
+		if(clocker[i] / 100 < 50) NumCntClock[clocker[i] / 100]++;
+		else NumCntClock[49]++;
+	}
+	printf("(MaxClock, MinClock) = (%5llu, %5llu)\n", MaxClock, MinClock);
+	
+	for(i = 0; i < 50; i++)
+	{
+		printf("%d : %d\n", (i + 1) * 100, NumCntClock[i]);
+	}
+	return;
+}
+
 int main(int argc,char *argv[]){
     // root
     root = (NODE *)malloc(sizeof(NODE*));
@@ -178,6 +208,7 @@ int main(int argc,char *argv[]){
     // query -> ip (use to test the searching performance)
     ENTRY *table = (ENTRY *)malloc(num_entries*sizeof(ENTRY));
     uint128_t *query = (uint128_t *)malloc(num_entries*sizeof(uint128_t));
+    clocker=(unsigned long long int *)malloc(num_entries*sizeof(unsigned long long int));
     num_entries=0;
     // move fp back to beginning pos
     rewind(fp);
@@ -201,6 +232,7 @@ int main(int argc,char *argv[]){
         table[num_entries].ipv6 = ipv6;
         table[num_entries].port = nexthop;
         table[num_entries].len = len;
+        clocker[num_entries]=10000000;
         // inc
         num_entries++;
 
@@ -244,6 +276,18 @@ int main(int argc,char *argv[]){
     printf("Total nodes(in binary trie): %d\n",N);
     detect_layer(root,1);
     printf("Maximum Layer: %d\n",Layer);
+
+    // 
+    for(int j=0;j<100;j++){
+        for(int i=0;i<num_entries;i++){
+            begin=rdtsc();
+            search(query[i]);
+            end=rdtsc();
+            if(clocker[i]>(end-begin))
+                clocker[i]=(end-begin);
+        }
+    }
+    CountClock();
 
     // Print debug
     /*for(int i=0;i<=IPV6;i++){

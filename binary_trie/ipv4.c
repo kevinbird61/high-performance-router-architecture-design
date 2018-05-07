@@ -232,24 +232,42 @@ int main(int argc,char *argv[]){
     total=0;
     printf("Searching...");
 	double time_spent=0;
-    for(i=0;i<num_query;i++){
-        // begin=rdtsc();
-		clock_t begin = clock();
-        search(query[i]);
-        // end=rdtsc();
-		clock_t end = clock();
-        // total+=(end-begin);
-		if(i==0)
-			time_spent = (double)(end-begin)/CLOCKS_PER_SEC;
-		else 
-			time_spent += ((double)(end-begin)/CLOCKS_PER_SEC)/2;
-        //printf("%f\n",(double)end-begin/CLOCKS_PER_SEC);	
-    }
+	/*for(j=0;j<100;j++){
+		for(i=0;i<num_query;i++){
+			//begin=rdtsc();
+			clock_t begin = clock();
+			search(query[i]);
+			//end=rdtsc();
+			clock_t end = clock();
+			// total+=(end-begin);
+			if(i==0)
+				time_spent = (double)(end-begin)/CLOCKS_PER_SEC;
+			else 
+				time_spent += ((double)(end-begin)/CLOCKS_PER_SEC)/2;
+			//printf("%f\n",(double)end-begin/CLOCKS_PER_SEC);	
+			//if(clocker[i]>(end-begin))
+			//	clocker[i]=(end-begin);
+		}
+	}*/
+	for(j=0;j<100;j++){
+		for(i=0;i<num_query;i++){
+			begin=rdtsc();
+			search(query[i]);
+			end=rdtsc();
+			if(clocker[i]>(end-begin))
+				clocker[i]=(end-begin);
+		}
+	}
+
     printf("\n\nAvg. Inserting time: %f (sec)\n",(double)insert_avg/CLOCKS_PER_SEC);
 	printf("Number of nodes(binary trie): %d\n",num_node);
 	printf("Total memory requirement: %d KB\n",((num_node*12)/1024));
-	printf("Avg. Searching time: %f (sec)\n",time_spent);
-	//CountClock();
+	total=0;
+	for(j=0;j<num_query;j++)
+		total+=clocker[j];
+	CountClock();
+	printf("Avg. Searching time: %f (sec)\n",(double)total/(num_query*CLOCKS_PER_SEC));
+	printf("Avg. Searching time (CPU cycle): %llu\n",total/num_entry);
 	////////////////////////////////////////////////////////////////////////////
 	//count_node(root);
 	//printf("There are %d nodes in binary trie\n",N);

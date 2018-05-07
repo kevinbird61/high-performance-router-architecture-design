@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "array": "c",
+        "slist": "c",
+        "initializer_list": "c"
     }
 }
