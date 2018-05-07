@@ -471,7 +471,7 @@ int main(int argc,char *argv[]){
 	printf("Avg. Insert: %llu\n",(end-begin)/num_entry);
 	printf("number of nodes: %d\n",num_mapnode);
 	////////////////////////////////////////////////////////////////////////////
-	//for(j=0;j<100;j++){
+	for(j=0;j<100;j++){
 		for(i=0;i<num_query;i++){
 			begin=rdtsc();
 			search(query[i].ip1,query[i].ip2,query[i].ip3,query[i].ip4);
@@ -479,7 +479,7 @@ int main(int argc,char *argv[]){
 			if(clock[i]>(end-begin))
 				clock[i]=(end-begin);
 		}
-	//}
+	}
 	total=0;
 	for(j=0;j<num_query;j++)
 		total+=clock[j];
