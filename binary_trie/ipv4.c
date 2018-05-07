@@ -223,8 +223,8 @@ int main(int argc,char *argv[]){
 	int i,j;
 	//set_query(argv[2]);
 	//set_table(argv[1]);
-	set_query("../ipv4/400k_IP_build.txt");
-	set_table("../ipv4/400k_IP_build.txt");
+	set_query(argv[1]);
+	set_table(argv[1]);
 	create();
 	unsigned long long insert_avg = (end-begin)/num_entry;
     

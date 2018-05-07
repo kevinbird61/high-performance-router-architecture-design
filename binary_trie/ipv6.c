@@ -150,7 +150,7 @@ void detect_layer(NODE *r,int l){
 	detect_layer(r->right,l++);
 }
 
-int main(void){
+int main(int argc,char *argv[]){
     // root
     root = (NODE *)malloc(sizeof(NODE*));
     IPTABLE *counter = NULL;
@@ -160,7 +160,7 @@ int main(void){
         counter[i].count=0;
     }
     // read the test file
-    FILE *fp = fopen("../ipv6/bgptable_ipv6_uniq.txt","r+");
+    FILE *fp = fopen(argv[1],"r+");
     if(!fp){
         fprintf(stderr,"read file error\n");
         exit(1);
