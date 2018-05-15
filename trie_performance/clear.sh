@@ -1,0 +1,1 @@
+rm binary_trie.out mspt.out tree_bitmap.out
