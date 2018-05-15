@@ -9,7 +9,7 @@ struct ENTRY{
 	unsigned char port;
 };
 ////////////////////////////////////////////////////////////////////////////////////
-inline unsigned long long int rdtsc()
+unsigned long long int rdtsc()
 {
 	unsigned long long int x;
 	asm volatile ("rdtsc" : "=A" (x));
