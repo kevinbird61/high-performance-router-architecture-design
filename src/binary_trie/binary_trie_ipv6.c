@@ -39,6 +39,7 @@ typedef node *btrie;
 btrie root;
 int num_entry = 0;
 int num_query = 0;
+int num_mem_access = 0;
 struct ENTRY *table;
 struct INPUT *query;
 int num_nodes = 0;
@@ -85,7 +86,7 @@ int main(int argc,char *argv[]){
 
     set_table(argv[1]);
     set_query(argv[1]);
-    
+
     build_tree();
 
     printf("Avg. Insertion time: %llu\n",(end-begin)/num_entry);
@@ -104,18 +105,20 @@ int main(int argc,char *argv[]){
 
     for(int j=0;j<num_query;j++)
         total+=clocker[j];
-    
+
     printf("Avg. Search: %llu\n",total/num_query);
 
     if(argc < 2)
         count_clock((char *)stdout);
     else if(argc>=2)
         count_clock(argv[2]);
-    
+
     if(argc < 3)
         count_mem((char *)stdout);
     else if(argc>=3)
         count_mem(argv[3]);
+
+    printf("Total number of memory access time: %d\n",num_mem_access);
 
     return 0;
 }
@@ -131,27 +134,41 @@ void search(unsigned int ip1,
     for(int i=31;i>=(-1);i--){
         if(current==NULL)
             break;
-        if(current->port!=256)
+        if(current->port!=256){
             temp=current;
+            // memory access ++
+            num_mem_access++;
+        }
         if(ip1&(1<<i)){
             current=current->right;
+            // mem access
+            num_mem_access++;
         }
         else{
             current=current->left;
+            // mem access
+            num_mem_access++;
         }
     }
 
-    // search len2 
+    // search len2
     for(int i=31;i>=(-1);i--){
         if(current==NULL)
             break;
-        if(current->port!=256)
+        if(current->port!=256){
             temp=current;
+            // mem
+            num_mem_access++;
+        }
         if(ip2&(1<<i)){
             current=current->right;
+            // mem
+            num_mem_access++;
         }
         else{
             current=current->left;
+            // mem
+            num_mem_access++;
         }
     }
 
@@ -159,13 +176,20 @@ void search(unsigned int ip1,
     for(int i=31;i>=(-1);i--){
         if(current==NULL)
             break;
-        if(current->port!=256)
+        if(current->port!=256){
             temp=current;
+            // mem
+            num_mem_access++;
+        }
         if(ip3&(1<<i)){
             current=current->right;
+            // mem
+            num_mem_access++;
         }
         else{
             current=current->left;
+            // mem
+            num_mem_access++;
         }
     }
 
@@ -173,13 +197,20 @@ void search(unsigned int ip1,
     for(int i=31;i>=(-1);i--){
         if(current==NULL)
             break;
-        if(current->port!=256)
+        if(current->port!=256){
             temp=current;
+            // mem
+            num_mem_access++;
+        }
         if(ip4&(1<<i)){
             current=current->right;
+            // mem
+            num_mem_access++;
         }
         else{
             current=current->left;
+            // mem
+            num_mem_access++;
         }
     }
 }
@@ -202,7 +233,7 @@ void count_clock(char *fn){
     // Time Measurement
     unsigned int *num_cnt_clock = (unsigned int *)malloc(NUM_CNT_CLOCK*sizeof(unsigned int));
     for(unsigned int i=0;i<NUM_CNT_CLOCK;i++) num_cnt_clock[i]=0;
-    
+
     unsigned long long min_clock = 10000000,max_clock = 0;
     for(unsigned int i=0;i<num_query;i++){
         if(clocker[i] > max_clock) max_clock=clocker[i];
@@ -213,7 +244,7 @@ void count_clock(char *fn){
 
     printf("(Max_clock, Min_clock) = (%5llu, %5llu)\n", max_clock, min_clock);
 
-    // Max/Min clock 
+    // Max/Min clock
     fprintf(fout,"# %5llu %5llu\n", max_clock, min_clock);
 
     for(unsigned int i=0;i<50;i++){
@@ -247,7 +278,7 @@ void set_table(char *fn){
     rewind(fp);
     table=(struct ENTRY *)malloc(num_entry*sizeof(struct ENTRY));
     num_entry=0;
-    
+
     // store value into table
     while(fgets(str,200,fp)!=NULL){
         if(read_table(str,&ip1,&ip2,&ip3,&ip4,&len,&nexthop)){
@@ -267,8 +298,8 @@ void set_query(char *fn){
     int len;
     char str[200];
     unsigned int ip1=0,ip2=0,ip3=0,ip4=0,nexthop;
-    
-    // read file 
+
+    // read file
     fp=fopen(fn,"r");
     // count number of query
     while(fgets(str,200,fp)!=NULL){
@@ -380,7 +411,7 @@ void add_node(unsigned int ip1,
     int level;
     // 32x4=128
     int len1=32,len2=32,len3=32,len4=32;
-    // test len 
+    // test len
     if(len<=32 && len>=0) level=1;
     else if(len>32 && len<=64) level=2;
     else if(len>64 && len<=96) level=3;
