@@ -223,7 +223,7 @@ void count_mem(char *fn){
     printf("Total number of node: %d\n",num_nodes);
     printf("Total memory consumption: %f(KB)\n",num_nodes*sizeof(node)/1024.0);
 
-    fprintf(fout,"%lu %d %f\n", sizeof(node), num_nodes, num_nodes*sizeof(node)/1024.0);
+    fprintf(fout,"%lu %d %f %u\n", sizeof(node), num_nodes, num_nodes*sizeof(node)/1024.0, num_mem_access);
 }
 
 void count_clock(char *fn){

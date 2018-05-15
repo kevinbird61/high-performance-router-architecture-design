@@ -53,6 +53,7 @@ unsigned long long int begin,end,total=0;
 unsigned long long int *clock;
 int num_node=0;//total number of nodes in the binary trie
 int num_mapnode = 0;
+unsigned int num_mem_access = 0;
 unsigned int MemCount = 0;
 ////////////////////////////////////////////////////////////////////////////////////
 btrie create_node(){
@@ -320,7 +321,11 @@ void search(unsigned int ip1, unsigned int ip2, unsigned int ip3, unsigned int i
             ///////////////////////////////////////////////
             if(current->internal[x+7]==1){
                 for(j=0;j<x+7;j++)
-                    if(current->internal[j]==1)countx++;
+                    if(current->internal[j]==1){
+                        countx++;
+                        // mem
+                        //num_mem_access++;
+                    }
             }
             if(countx>0){
                 flagy = 0;
@@ -330,7 +335,11 @@ void search(unsigned int ip1, unsigned int ip2, unsigned int ip3, unsigned int i
             if(flagy==1){
                 if(current->internal[y+3]==1){
                     for(j=0;j<y+3;j++)
-                        if(current->internal[j]==1)county++;
+                        if(current->internal[j]==1){
+                            county++;
+                            // mem
+                            //num_mem_access++;
+                        }
                 }
             }
             if(county>0){
@@ -340,7 +349,11 @@ void search(unsigned int ip1, unsigned int ip2, unsigned int ip3, unsigned int i
             if(flagz==1){
                 if(current->internal[z+1]==1){
                     for(j=0;j<z+1;j++)
-                        if(current->internal[j]==1)countz++;
+                        if(current->internal[j]==1){
+                            countz++;
+                            // mem
+                            //num_mem_access++;
+                        }
                 }
             }
             if(countz>0)
@@ -348,6 +361,8 @@ void search(unsigned int ip1, unsigned int ip2, unsigned int ip3, unsigned int i
             if(current->child[shift_ip]!=NULL){
                 temp = current;
                 current = current->child[shift_ip];
+                // mem
+                num_mem_access++;
             }
             else 
                 return;
@@ -500,7 +515,8 @@ int main(int argc,char *argv[]){
 
     if(argc >= 3){
         FILE *fmem = fopen(argv[3],"w+");
-        fprintf(fmem,"%d %u\n",((MemTotal)/1024),MemCount);
+        // fprintf(fmem,"%d %u\n",((MemTotal)/1024),MemCount);
+        fprintf(fmem,"%lu %d %f %u\n",sizeof(node),num_mapnode,(MemTotal)/1024.0,num_mem_access);
         fclose(fmem);
     }
 

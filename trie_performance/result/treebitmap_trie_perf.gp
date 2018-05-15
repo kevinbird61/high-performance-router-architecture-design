@@ -7,7 +7,7 @@ set title "Searching Time Distribution"
 set xlabel "Counter"
 set ylabel "CPU Clock usage"
 set terminal png font "Times_New_Roman, 12"
-set output "searching_time_perf_(binary trie & tree bitmap).png"
+set output "searching_time_perf_binary_trie_treebitmap.png"
 
 set xtics rotate by 45 right 
 set key right 

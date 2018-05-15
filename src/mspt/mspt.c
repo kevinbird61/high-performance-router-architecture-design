@@ -56,11 +56,11 @@ int cmp_r(int, int);
 void readTable(char *);
 
 
-
 struct MSPTrie *root;
 unsigned int num_nodes=0;
 struct ipv6_prefix *table;
 int num_entry = 0;
+unsigned long int num_mem_access=0;
 
 int main(int argc, char *argv[]) {
 	int i, j;
@@ -127,7 +127,7 @@ int main(int argc, char *argv[]) {
 	if(argc>=3){
 		// Open file 
 		FILE *fmem = fopen(argv[3],"w+");
-		fprintf(fmem,"%u\n",num_nodes);
+		fprintf(fmem,"%lu %u %f %lu\n",sizeof(struct MSPTrie),num_nodes,num_nodes*sizeof(struct MSPTrie)/1024.0,num_mem_access);
 		fclose(fmem);
 	}
 
@@ -149,9 +149,13 @@ int MSPT_Search(int ruleID) {
 			}
 			if (cmp_ip(ruleID, now->ruleID) == -1) {
 				now = now->left;
+				// mem 
+				num_mem_access++;
 			}
 			else if (cmp_ip(ruleID, now->ruleID) == 1) {
 				now = now->right;
+				// mem 
+				num_mem_access++;
 			}
 		}
 	}
@@ -159,12 +163,16 @@ int MSPT_Search(int ruleID) {
 	struct Eset *no;
 	for (i = s - 1; i >= 0; i--) {
 		no = node[i]->set;
+		// mem 
+		num_mem_access++;
 
 		while (no != NULL) {
 			if (cover_ip(ruleID, no->ruleID)) {
 				return 2;
 			}
 			no = no->next;
+			// mem 
+			num_mem_access++;
 		}
 	}
 	return 0;
